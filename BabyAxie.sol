@@ -408,11 +408,11 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
     ) external;
 }
 
-contract babyAxie is Context, IERC20, Ownable {
+contract BabyAxie is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
-    address payable public marketingAddress = payable(0x3dF96c1f02486b37cC4F7c5bAe9F5860EfA51558); // 
+    address payable public marketingAddress = payable(0x3dF96c1f02486b37cC4F7c5bAe9F5860EfA51558); // Marketing Address
     address public immutable deadAddress = 0x000000000000000000000000000000000000dEaD;
     mapping (address => uint256) private _rOwned;
     mapping (address => uint256) private _tOwned;
@@ -429,7 +429,7 @@ contract babyAxie is Context, IERC20, Ownable {
     uint256 private _rTotal = (MAX - (MAX % _tTotal));
     uint256 private _tFeeTotal;
 
-    string private _name = "Baby Axie | t.me/BabyAxieOfficial";
+    string private _name = "Baby Axie | www.BabyAxie.tk";
     string private _symbol = "BabyAxie";
     uint8 private _decimals = 9;
 
@@ -442,10 +442,10 @@ contract babyAxie is Context, IERC20, Ownable {
 
     uint256 public marketingDivisor = 3;
 
-    uint256 public _maxTxAmount = 30000000 * 10**6 * 10**9;
+    uint256 public _maxTxAmount = 3000000 * 10**6 * 10**9;
     uint256 private constant numTokensSellToAddToLiquidity = 100000 * 10**6 * 10**9;
-    uint256 private constant numTokensSellToAddToBuyback = 900000 * 10**6 * 10**9;
-    uint256 private minimumTokensBeforeSwap = 1000000 * 10**6 * 10**9;
+    uint256 private constant numTokensSellToAddToBuyback = 800000 * 10**6 * 10**9;
+    uint256 private minimumTokensBeforeSwap = 900000 * 10**6 * 10**9;
     uint256 private buyBackUpperLimit = 1 * 10**18;
 
     uint256 public lastBuybackTimestamp;
@@ -987,11 +987,11 @@ contract babyAxie is Context, IERC20, Ownable {
         _maxTxAmount = 1000000000 * 10**6 * 10**9;
     }
 
-     function afterPreSale() external onlyOwner {
+    function afterPreSale() external onlyOwner {
         setSwapAndLiquifyEnabled(true);
-        _taxFee = 1;
-        _liquidityFee = 12;
-        _maxTxAmount = 30000000 * 10**6 * 10**9;
+        _taxFee = 2;
+        _liquidityFee = 9;
+        _maxTxAmount = 3000000 * 10**6 * 10**9;
     }
 
     function transferToAddressETH(address payable recipient, uint256 amount) private {
